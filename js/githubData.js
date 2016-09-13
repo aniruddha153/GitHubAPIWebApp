@@ -61,10 +61,13 @@ $(function(){
 			$('#loader').css("display","none");
 			$('#user-deck').append(result);
 			
-			$('.deleteUserBtn').on('click', function(){
+			$('.deleteUserBtn').on('click', function(e){
+				e.preventDefault();
 				$(this).closest('.user-card').remove();
 			});
 		}
+
+		$(this).siblings('.form-group').find('#github-username').val("");
 	});
 
 	$('.sortNameBtn').on('click', sortByName);
@@ -73,7 +76,6 @@ $(function(){
 
 	function setSortOrder(sortBtn){
 		var sortOrder;
-
 		$('.sort-opt').not(sortBtn).removeClass('asc').removeClass('desc');
 
 		if(!sortBtn.hasClass('asc')){
@@ -87,7 +89,7 @@ $(function(){
 	}
 
 	function sortByName(e){
-		var sortOrder = setSortOrder($(e.target));
+		var sortOrder = setSortOrder($(e.target).closest('.sort-opt'));
 
 		var users = $('#user-deck');
 		var userCardItem = users.find('.user-card');
@@ -109,7 +111,7 @@ $(function(){
 	}
 
 	function sortByLocation(e){
-		var sortOrder = setSortOrder($(e.target));
+		var sortOrder = setSortOrder($(e.target).closest('.sort-opt'));
 
 		var users = $('#user-deck');
 		var userCardItem = users.find('.user-card');
@@ -131,7 +133,7 @@ $(function(){
 	}
 
 	function sortByFlwrs(e){
-		var sortOrder = setSortOrder($(e.target));
+		var sortOrder = setSortOrder($(e.target).closest('.sort-opt'));
 
 		var users = $('#user-deck');
 		var userCardItem = users.find('.user-card');
@@ -155,3 +157,23 @@ $(function(){
 	}
 
 });
+
+
+// $('#user-deck').on('click', '#' + userDataObj.id + ' .deleteUserBtn', function(){
+// 	$(this).closest('.user-card').remove();
+// });
+
+// $('#user-deck').on('click', '#' + userDataObj.id + '.user-card', function(){
+// 	var profileurl = $(this).data('profileurl');
+// 	if(profileurl){
+// 		var win = window.open(profileurl, '_blank');					
+// 		if (win) {
+// 			win.focus();
+// 		}
+// 		else {
+// 			//If browser has blocked popups
+// 			alert('Popups have been blocked for this website.');
+// 		}
+// 	}
+// 	else { return false; }
+// });

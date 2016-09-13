@@ -14,7 +14,7 @@
 	<div class="container">
 		<form class="form-inline">
 			<div class="form-group">
-				<input type="text" id="github-username" class="form-control" name="github-username" placeholder="github login" value="aniruddha153">
+				<input type="text" id="github-username" class="form-control" name="github-username" placeholder="github login" />
 			</div>
 			<a href="#" id="add-user-btn" class="btn btn-primary" role="button">Add</a>
     		<div id="loader" style="display:none;">
@@ -40,7 +40,7 @@
 
 			<script id="entry-template" type="text/x-handlebars-template">
 			<a href="{{profileurl}}" target="_blank">
-				<div class="col-xs-6 col-sm-6 col-md-3 user-card" data-name="{{fullname}}" data-location="{{location}}" data-flwrcount="{{followersCount}}">
+				<div class="col-xs-6 col-sm-6 col-md-3 user-card" id="{{id}}_d" data-name="{{fullname}}" data-location="{{location}}" data-flwrcount="{{followersCount}}" data-profileurl="{{profileurl}}">
 					<div class="thumbnail">
 						<img src="{{profilepic}}" alt="person1">
 						<div class="caption">
@@ -57,8 +57,6 @@
 		</div>
 	</div>
 
-	<!-- <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="js/githubData.js"></script>
