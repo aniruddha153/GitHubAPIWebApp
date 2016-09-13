@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>GitHub</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<div class="container">
+		<form class="form-inline">
+			<div class="form-group">
+				<input type="text" id="github-username" class="form-control" name="github-username" placeholder="github login" value="aniruddha153">
+			</div>
+			<a href="#" id="add-user-btn" class="btn btn-primary" role="button">Add</a>
+    		<div id="loader" style="display:none;">
+    			<img src="css/loader.gif" alt="loading...">
+    			<!-- <i class="fa fa-spinner fa-pulse fa-lg"></i> -->
+    		</div>
+		</form>
+	
+		<div class="row sort-options">
+			<div class="col-xs-12">
+				<span>Sort by: </span>
+				<a href="#" class="sort-opt sortNameBtn">Name <i class="fa fa-caret"></i></a>
+				<a href="#" class="sort-opt sortLocationBtn">Location <i class="fa fa-caret"></i></a>
+				<a href="#" class="sort-opt sortFlwrsBtn">Followers <i class="fa fa-caret"></i></a>
+			</div>
+		</div>
+
+		<div class="alert alert-danger" role="alert">
+			Username does not exist on GitHub.
+		</div>
+
+		<div class="row" id="user-deck">
+
+			<script id="entry-template" type="text/x-handlebars-template">
+			<a href="{{profileurl}}" target="_blank">
+				<div class="col-xs-6 col-sm-6 col-md-3 user-card" data-name="{{fullname}}" data-location="{{location}}" data-flwrcount="{{followersCount}}">
+					<div class="thumbnail">
+						<img src="{{profilepic}}" alt="person1">
+						<div class="caption">
+							<h4 class="user-fullname">{{fullname}}</h4>
+							<p class="user-location">Location: {{location}}</p>
+							<p class="user-flwrcount">Followers: {{followersCount}}</p>
+						</div>
+						<i class="fa fa-close deleteUserBtn"></i>
+					</div>
+				</div>
+			</a>
+			</script>
+
+		</div>
+	</div>
+
+	<!-- <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/githubData.js"></script>
+</body>
+</html>
